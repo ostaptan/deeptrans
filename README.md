@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 
 ### Preprocessing Data
-Put **slowar.xml** file into *APP_ROOT/slowar_data/* directory and run command to create train and validation datasets.
+Put **slowar.xml** file into *APP_ROOT/slowar_data/* directory and run command to create train(85%) and validation(15%) datasets.
 
 ```sh
 python3 preprocess.py
