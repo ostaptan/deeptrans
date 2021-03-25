@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import random
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
 
 class EncRNN(nn.Module):
     def __init__(self, vsz, embed_dim, hidden_dim, n_layers, use_birnn, dout):
