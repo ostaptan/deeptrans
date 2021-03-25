@@ -12,14 +12,12 @@ def main():
 
   for collection in root.iter('PhrasesToSerialize'):
     for keyval in collection.iter('KeyValueObject'):
-      # Loop all Opinion of a particular sentence.
-      # if 'Key' in keyval.attrib:
       data.append([keyval.find('Key').text, keyval.find('Value').text])
 
   random.shuffle(data)
-  ind75 = int(len(data) * .85)
-  trainList = data[0 : ind75]
-  validList = data[ind75:]
+  ind = int(len(data) * .85)
+  trainList = data[0:ind]
+  validList = data[ind:]
 
   print(f'all data len: {len(data)}')
   print(f'train data len: {len(trainList)}')
