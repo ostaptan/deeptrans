@@ -4,7 +4,7 @@ import csv
 import random
 
 def main():
-  file = 'slowar_data/slowar.xml'
+  file = 'data/slowar.xml'
 
   tree = ElementTree.parse(file)
   root = tree.getroot()
@@ -23,11 +23,11 @@ def main():
   print(f'train data len: {len(trainList)}')
   print(f'valid data len: {len(validList)}')
 
-  with open('slowar_data/train.tsv', 'wt') as tr_file:
+  with open('data/train.tsv', 'wt') as tr_file:
     tsv_writer = csv.writer(tr_file, delimiter='\t')
     tsv_writer.writerows(trainList)
 
-  with open('slowar_data/valid.tsv', 'wt') as tr_file:
+  with open('data/valid.tsv', 'wt') as tr_file:
     tsv_writer = csv.writer(tr_file, delimiter='\t')
     tsv_writer.writerows(validList)
 

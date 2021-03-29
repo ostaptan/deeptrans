@@ -48,7 +48,9 @@ def main(args):
         preds = model(samples.src, tgts=None, maxlen=args.maxlen, tf_ratio=0.0)
         preds = preds.max(2)[1].transpose(1, 0)
         outs = [id2w(pred, TGT) for pred in preds]
-        print('\n'.join(outs))
+        with open('./data/test_output.txt', 'w') as f:
+            f.write('\n'.join(outs))
+        print('Translations written to file test_output.txt')
 
 
 if __name__ == '__main__':

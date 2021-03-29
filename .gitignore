@@ -1,5 +1,5 @@
-/slowar_data/*.xml
-/slowar_data/*.tsv
+/data/*.xml
+/data/*.tsv
 /checkpoints/*
 /sample_data/*
 /deeptrans-env/*
