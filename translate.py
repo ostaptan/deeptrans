@@ -3,7 +3,7 @@ import os
 import dill
 
 import torch
-from torchtext import data
+from torchtext.legacy import data
 
 from options import translate_opts
 from model import Seq2seqAttn
