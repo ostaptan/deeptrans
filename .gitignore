@@ -1,5 +1,4 @@
-/data/*.xml
-/data/*.tsv
+/data/*
 /checkpoints/*
 /sample_data/*
 /deeptrans-env/*

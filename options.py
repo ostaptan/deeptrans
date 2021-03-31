@@ -1,9 +1,9 @@
 
 def train_opts(parser):
     group = parser.add_argument_group('Training')
-    group.add_argument('--train', default='./sample_data/sample_train.tsv',
+    group.add_argument('--train', default='./data/train.tsv',
         help='path to a train data')
-    group.add_argument('--valid', default='./sample_data/sample_valid.tsv',
+    group.add_argument('--valid', default='./data/valid.tsv',
         help='path to a validation data')
     group.add_argument('--batch-size', type=int, default=32,
         help='batch size')

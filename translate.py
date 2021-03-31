@@ -33,8 +33,15 @@ def main(args):
     TGT = load_field(os.path.join(dirname, 'tgt.field'))
     fields = [('src', SRC), ('tgt', TGT)]
 
+    # with open(args.input, 'r') as f:
+    #     examples = [data.Example.fromlist([line], [('src', SRC)]) for line in f]
+
     with open(args.input, 'r') as f:
-        examples = [data.Example.fromlist([line], [('src', SRC)]) for line in f]
+        examples = []
+        for line in f:
+            inp = line.split('| |')[0]
+            examples.append(data.Example.fromlist([inp], [('src', SRC)]))
+
 
     test_data = data.Dataset(examples, [('src', SRC)])
     test_iter = data.Iterator(test_data, batch_size=args.batch_size,
@@ -48,9 +55,14 @@ def main(args):
         preds = model(samples.src, tgts=None, maxlen=args.maxlen, tf_ratio=0.0)
         preds = preds.max(2)[1].transpose(1, 0)
         outs = [id2w(pred, TGT) for pred in preds]
-        with open('./data/test_output.txt', 'a') as f:
-            f.write('\n'.join(outs))
-        print('Translations written to file test_output.txt')
+        outfile_path = './data/test_out2.csv'
+        with open(outfile_path, 'a') as f:
+            i = 0
+            while i < len(outs):
+                f.write(f'{outs[i]}\n')
+                i += 1
+
+        print(f'Translations written to file {outfile_path}')
 
 
 if __name__ == '__main__':
@@ -58,3 +70,6 @@ if __name__ == '__main__':
     translate_opts(parser)
     args = parser.parse_args()
     main(args)
+
+
+# '| sd3 | sdfsd |'
