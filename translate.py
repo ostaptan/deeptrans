@@ -40,9 +40,11 @@ def main(args):
         examples = []
         for line in f:
             inp = line.split('| |')[0]
+            print(inp)
             examples.append(data.Example.fromlist([inp], [('src', SRC)]))
 
 
+    print(examples)
     test_data = data.Dataset(examples, [('src', SRC)])
     test_iter = data.Iterator(test_data, batch_size=args.batch_size,
                     train=False, shuffle=False, sort=False, device=device)
