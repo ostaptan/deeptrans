@@ -30,7 +30,7 @@ def translate_opts(parser):
     group = parser.add_argument_group('Translation')
     group.add_argument('--model', default='./checkpoints/checkpoint_best.pt',
         help='model file for translation')
-    group.add_argument('--input', default='./sample_data/sample_test.txt',
+    group.add_argument('--input', default='./data/test.csv',
         help='input file')
     group.add_argument('--batch-size', type=int, default=32,
         help='batch size')
